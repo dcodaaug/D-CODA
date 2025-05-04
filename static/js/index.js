@@ -21,50 +21,47 @@ function setInterpolationImage(i) {
 
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
     $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
-
     });
 
     var options = {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      loop: true,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 12000,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+      resetProgress: false,
+      navigation: true,
     }
 
-		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
 
-    // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
+      carousels[i].on('before:show', state => {
+        console.log(state);
+      });
+
+      carousels[i].on('after:show', function() {
+        setTimeout(function() {
+          if (!carousels[i].isPaused()) {
+            carousels[i].start();
+          }
+        }, 100);
+      });
     }
 
-    // Access to bulmaCarousel instance of an element
     var element = document.querySelector('#my-element');
     if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
+      element.bulmaCarousel.on('before-show', function(state) {
+        console.log(state);
+      });
     }
 
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
@@ -74,5 +71,59 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
+});
 
-})
+document.addEventListener('DOMContentLoaded', function() {
+  const taskSelector = document.getElementById('task-selector');
+  const taskImages = document.querySelectorAll('.task-image');
+  
+  taskSelector.addEventListener('change', function() {
+    taskImages.forEach(image => {
+      image.style.display = 'none';
+    });
+    
+    const selectedImage = document.getElementById(taskSelector.value);
+    if (selectedImage) {
+      selectedImage.style.display = 'block';
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const selector = document.getElementById('trajectory-selector');
+  const iframe = document.getElementById('trajectory-iframe');
+  
+  if (selector && iframe) {
+    const taskPaths = {
+      'coordinated_lift_ball': './static/html/coordinated_lift_ball.html',
+      'coordinated_lift_tray': './static/html/coordinated_lift_tray.html',
+      'coordinated_push_box': './static/html/coordinated_push_block.html',
+    };
+    
+    selector.addEventListener('change', function() {
+      const selectedValue = selector.value;
+      const path = taskPaths[selectedValue];
+      
+      if (path) {
+        iframe.src = path;
+        setTimeout(function() {
+          iframe.contentWindow.location.reload(true);
+        }, 100);
+      }
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const baselineSelector = document.getElementById('baseline-selector');
+  if (baselineSelector) {
+    baselineSelector.addEventListener('change', function() {
+      document.querySelectorAll('.baseline-comparison').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      
+      const selectedId = this.value;
+      document.getElementById(selectedId).style.display = 'block';
+    });
+  }
+});
