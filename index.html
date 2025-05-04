@@ -89,6 +89,24 @@
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
+          <video poster autoplay muted loop playsinline height="100%">
+            <source src=".\static\videos\hero_teaser\real_coordinated_lift_ball.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster autoplay muted loop playsinline height="100%">
+            <source src=".\static\videos\hero_teaser\real_coordinated_lift_drawer.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster autoplay muted loop playsinline height="100%">
+            <source src=".\static\videos\hero_teaser\real_coordinated_push_box.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
           <video poster autoplay muted loop playsinline height="200%">
             <source src=".\static\videos\hero_teaser\sim_coordinated_lift_ball.mp4" type="video/mp4">
           </video>
@@ -117,24 +135,6 @@
             <source src=".\static\videos\hero_teaser\sim_dual_push_button.mp4" type="video/mp4">
           </video>
         </div>
-
-        <div class="item">
-          <video poster autoplay muted loop playsinline height="100%">
-            <source src=".\static\videos\hero_teaser\real_coordinated_lift_ball.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item">
-          <video poster autoplay muted loop playsinline height="100%">
-            <source src=".\static\videos\hero_teaser\real_coordinated_lift_drawer.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item">
-          <video poster autoplay muted loop playsinline height="100%">
-            <source src=".\static\videos\hero_teaser\real_coordinated_push_box.mp4" type="video/mp4">
-          </video>
-        </div>
       </div>
     </div>
   </div>
@@ -149,7 +149,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning bimanual manipulation is challenging due to its high dimensionality and tight coordination required between two arms. Eye-in-hand imitation learning, which uses wrist-mounted cameras, simplifies perception by focusing on task-relevant views. However, collecting diverse demonstrations remains costly, motivating the need for scalable data augmentation. While prior work has explored visual augmentation in single-arm settings, extending these approaches to bimanual manipulation requires generating viewpoint-consistent observations across both arms and producing corresponding action labels that are both valid and feasible. In this work, we propose Diffusion for COordinated Dual-arm Data Augmentation <span class="dnerf">D-CODA</span>, a method for offline data augmentation tailored to eye-in-hand bimanual imitation learning that trains a diffusion model to synthesize novel, viewpoint-consistent wrist-camera images for both arms while simultaneously generating joint-space action labels. It employs constrained optimization to ensure that augmented states involving gripper-to-object contacts adhere to constraints suitable for bimanual coordination. We evaluate <span class="dnerf">D-CODA</span> on 5 simulated and 3 real-world tasks. Our results across 1500 simulation trials and 120 real-world trials demonstrate that it outperforms baselines and ablations, showing its potential for scalable data augmentation in eye-in-hand bimanual manipulation. 
+            Learning bimanual manipulation is challenging due to its high dimensionality and tight coordination required between two arms. Eye-in-hand imitation learning, which uses wrist-mounted cameras, simplifies perception by focusing on task-relevant views. However, collecting diverse demonstrations remains costly, motivating the need for scalable data augmentation. While prior work has explored visual augmentation in single-arm settings, extending these approaches to bimanual manipulation requires generating viewpoint-consistent observations across both arms and producing corresponding action labels that are both valid and feasible. In this work, we propose Diffusion for COordinated Dual-arm Data Augmentation (<span class="dnerf">D-CODA</span>), a method for offline data augmentation tailored to eye-in-hand bimanual imitation learning that trains a diffusion model to synthesize novel, viewpoint-consistent wrist-camera images for both arms while simultaneously generating joint-space action labels. It employs constrained optimization to ensure that augmented states involving gripper-to-object contacts adhere to constraints suitable for bimanual coordination. We evaluate <span class="dnerf">D-CODA</span> on 5 simulated and 3 real-world tasks. Our results across 2250 simulation trials and 180 real-world trials demonstrate that it outperforms baselines and ablations, showing its potential for scalable data augmentation in eye-in-hand bimanual manipulation. 
           </p>
         </div>
       </div>
@@ -180,7 +180,7 @@
     <!-- Augmented States -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align:start;">Augmented States</h2>
+        <h2 class="title is-3" style="text-align:start;">Original vs. Augmented States</h2>
         <div class="content has-text-justified">
           <p>
             The following examples demonstrate synthesized images generated by our diffusion model for various bimanual tasks.
@@ -294,10 +294,10 @@
     <!-- Augmented Dataset Trajectories -->
     <div class="columns is-centered has-text-centered" >
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align:start;">Augmented Positions</h2>
+        <h2 class="title is-3" style="text-align:start;">Original vs. Augmented Camera Positions</h2>
         <div class="content has-text-justified">
           <p>
-            Explore our original and augmented robot positions across different tasks. Select a task to view its corresponding dataset visualization.
+            Explore our original and augmented camera positions across different real-world tasks.
           </p>
         </div>
         
@@ -326,7 +326,7 @@
                   <iframe 
                     id="trajectory-iframe"
                     src="./static/html/coordinated_lift_ball.html" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px;">
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 80%; border: none; border-radius: 10px;">
                   </iframe>
                 </div>
               </div>
@@ -624,7 +624,7 @@
       <div class="column is-6">
         <div class="has-text-centered">
           <h5 class="title is-5">Push Block w/ 2 Blocks</h5>
-          <p class="subtitle is-6">Added another block above the original block for a total of 2 blocks</p>
+          <p class="subtitle is-6">Added another block above the original block</p>
           <div class="content-div"></div>
           <video playsinline autoplay loop muted style="width: 100%; border-radius: 10px;">
             <source src=".\static\videos\variation_expirements\push_block_multiple.mp4" type="video/mp4">
@@ -645,42 +645,16 @@
     </div>
     <!-- Variations Expirements -->
 
-    <!-- Ablation Expirements -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Ablation Expirements</h2>
-        <div class="content has-text-justified">
-          <p>
-            These are real-world expirements with different ablations on Lift Ball using <span class="dnerf">D-CODA</span>.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-6">
-        <div class="has-text-centered">
-          <h5 class="title is-5">Coordinated Lift Ball w/ Replaced Encoders</h5>
-          <p class="subtitle is-6">Replaced...</p>
-          <div class="content-div"></div>
-          <video playsinline autoplay loop muted style="width: 100%; border-radius: 10px;">
-            <source src="" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-    <!-- Variations Expirements -->
-
   </div>
 </section>
 
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code></code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
