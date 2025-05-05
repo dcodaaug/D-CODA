@@ -319,43 +319,51 @@
           </p>
         </div>
         
-        <div class="box mt-0 mb-0">
-          <div class="columns is-centered">
-            <div class="column is-narrow">
-              <div class="field">
-                <label class="label">Choose a task to view positions:</label>
-                <div class="control">
-                  <div class="select">
-                    <select id="trajectory-selector">
-                      <option value="coordinated_lift_ball">Lift Ball</option>
-                      <option value="coordinated_lift_tray">Lift Tray</option>
-                      <option value="coordinated_push_box">Push Block</option>
-                    </select>
+        <div class="mobile-message">
+          <h3 class="title is-6">Mobile Device Detected</h3>
+          <p>This interactive 3D visualization is optimized for desktop viewing. Please visit on a desktop device for the full experience.</p>
+          <p>The visualization shows camera position trajectories for robotics tasks including Lift Ball, Lift Tray, and Push Block scenarios.</p>
+        </div>
+
+        <div class="desktop-content">
+          <div class="box mt-0 mb-0">
+            <div class="columns is-centered">
+              <div class="column is-narrow">
+                <div class="field">
+                  <label class="label">Choose a task to view positions:</label>
+                  <div class="control">
+                    <div class="select">
+                      <select id="trajectory-selector">
+                        <option value="coordinated_lift_ball">Lift Ball</option>
+                        <option value="coordinated_lift_tray">Lift Tray</option>
+                        <option value="coordinated_push_box">Push Block</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div class="columns is-centered">
-            <div class="column">
-              <div id="trajectory-container" class="has-text-centered">
-                <div class="html-embed-container" style="position: relative; padding-bottom: 80%; overflow: hidden;">
-                  <iframe 
-                    id="trajectory-iframe"
-                    src="./static/html/coordinated_lift_ball.html" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px;">
-                  </iframe>
+            
+            <div class="columns is-centered">
+              <div class="column">
+                <div id="trajectory-container" class="has-text-centered">
+                  <div class="html-embed-container" style="position: relative; padding-bottom: 80%; overflow: hidden;">
+                    <iframe 
+                      id="trajectory-iframe"
+                      src="./static/html/coordinated_lift_ball.html" 
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px;">
+                    </iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="columns is-centered" style="margin-top:-5%;">
-            <div class="column is-three-quarters">
-              <p class="has-text-centered is-size-6" style="text-align:start;">
-                Click and drag to rotate. Right click and drag to pan. Scroll up to zoom in. Scroll down to zoom out. For more controls, check the upper right hand corner.
-              </p>
+  
+            <div class="columns is-centered" style="margin-top:-5%;">
+              <div class="column is-three-quarters">
+                <p class="has-text-centered is-size-6" style="text-align:start;">
+                  Click and drag to rotate. Right click and drag to pan. Scroll up to zoom in. Scroll down to zoom out. For more controls, check the upper right hand corner.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -473,7 +481,7 @@
                     <div class="column is-6">
                       <h5 class="title is-5">D-CODA</h5>
                       <video poster autoplay muted loop playsinline style="width: 100%; border-radius: 10px;">
-                        <source src=".\static\videos\baseline_comparisons\lift_tray_act.mp4" type="video/mp4">
+                        <source src=".\static\videos\hero_teaser\sim_coordinated_lift_tray.mp4" type="video/mp4">
                       </video>
                     </div>
                     <div class="column is-6">
@@ -505,7 +513,7 @@
                     <div class="column is-6">
                       <h5 class="title is-5">D-CODA</h5>
                       <video poster autoplay muted loop playsinline style="width: 100%; border-radius: 10px;">
-                        <source src=".\static\videos\baseline_comparisons\push_box_act.mp4" type="video/mp4">
+                        <source src=".\static\videos\hero_teaser\sim_coordinated_push_box.mp4" type="video/mp4">
                       </video>
                     </div>
                     <div class="column is-6">
@@ -537,7 +545,7 @@
                     <div class="column is-6">
                       <h5 class="title is-5">D-CODA</h5>
                       <video poster autoplay muted loop playsinline style="width: 100%; border-radius: 10px;">
-                        <source src=".\static\videos\baseline_comparisons\push_buttons_act.mp4" type="video/mp4">
+                        <source src=".\static\videos\hero_teaser\sim_dual_push_button.mp4" type="video/mp4">
                       </video>
                     </div>
                     <div class="column is-6">
@@ -569,7 +577,7 @@
                     <div class="column is-6">
                       <h5 class="title is-5">D-CODA</h5>
                       <video poster autoplay muted loop playsinline style="width: 100%; border-radius: 10px;">
-                        <source src=".\static\videos\baseline_comparisons\straighten_rope_act.mp4" type="video/mp4">
+                        <source src=".\static\videos\hero_teaser\sim_bimanual_straighten_rope.mp4" type="video/mp4">
                       </video>
                     </div>
                     <div class="column is-6">
@@ -618,7 +626,7 @@
       <div class="column is-6">
         <div class="has-text-centered">
           <h5 class="title is-5">Lift Drawer w/ Distractors</h5>
-          <p class="subtitle is-6">Added various different colored blocks as distractor</p>
+          <p class="subtitle is-6">Added various different colored blocks as distractors</p>
           <div class="content-div"></div>
           <video playsinline autoplay loop muted style="width: 100%; border-radius: 10px;">
             <source src=".\static\videos\variation_expirements\lift_drawer_distractors.mp4" type="video/mp4">
@@ -629,7 +637,7 @@
       <div class="column is-6">
         <div class="has-text-centered">
           <h5 class="title is-5">Lift Ball w/ Distractors</h5>
-          <p class="subtitle is-6">Added various different colored blocks as distractor</p>
+          <p class="subtitle is-6">Added various different colored blocks as distractors</p>
           <div class="content-div"></div>
           <video playsinline autoplay loop muted style="width: 100%; border-radius: 10px;">
             <source src=".\static\videos\variation_expirements\lift_ball_distractors.mp4" type="video/mp4">
@@ -653,7 +661,7 @@
       <div class="column is-6">
         <div class="has-text-centered">
           <h5 class="title is-5">Push Block w/ Distractors</h5>
-          <p class="subtitle is-6">Added various different colored blocks as distractor.</p>
+          <p class="subtitle is-6">Added various different colored blocks as distractors</p>
           <div class="content-div"></div>
           <video playsinline autoplay loop muted style="width: 100%; border-radius: 10px;">
             <source src=".\static\videos\variation_expirements\push_block_distractors.mp4" type="video/mp4">
