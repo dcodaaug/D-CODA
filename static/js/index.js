@@ -92,23 +92,20 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const selector = document.getElementById('trajectory-selector');
   const iframe = document.getElementById('trajectory-iframe');
-  
+
   if (selector && iframe) {
     const taskPaths = {
       'coordinated_lift_ball': './static/html/coordinated_lift_ball.html',
       'coordinated_lift_tray': './static/html/coordinated_lift_tray.html',
       'coordinated_push_box': './static/html/coordinated_push_block.html',
     };
-    
+
     selector.addEventListener('change', function() {
       const selectedValue = selector.value;
       const path = taskPaths[selectedValue];
       
       if (path) {
-        iframe.src = path;
-        setTimeout(function() {
-          iframe.contentWindow.location.reload(true);
-        }, 100);
+        iframe.src = path + '?t=' + new Date().getTime(); // Avoid cache
       }
     });
   }
