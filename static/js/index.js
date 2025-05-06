@@ -124,3 +124,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const failureSelector = document.getElementById('failure-selector');
+  if (failureSelector) {
+    failureSelector.addEventListener('change', function() {
+      document.querySelectorAll('.failure-class').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      
+      const selectedId = this.value;
+      document.getElementById(selectedId).style.display = 'block';
+    });
+  }
+});
